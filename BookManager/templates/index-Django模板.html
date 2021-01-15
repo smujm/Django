@@ -12,9 +12,8 @@
 我的异性朋友是{{ friends.2 }}  {# 列表取值 #}
 <hr>
 <ul>
-{# Django forloop jinja2 loop #}
     {% for item in friends %}
-        <li>{{ loop.index }} {{ item }}</li>
+        <li>{{ forloop.counter }}</li>
     {% endfor %}
 </ul>
 <hr>2021我的score是{{ score.2021 }}<hr>
@@ -26,21 +25,18 @@
 {% endif %}
 <hr>
 {# 我是注释 #}
-{# jinja2 没有多行注释 #}
+{% comment %}
+我也是注释
+{% endcomment %}
 
 <hr>
 {# 过滤器的语法形式: 变量|过滤器:'参数'#}
-{#当前时间：{{ birthday|date:'Y年m月j日 H时i分s秒 ' }}#}
-
-{# pycharm 认为有错,实际没错 #}
-{# pycharm 默认的模板引擎是 Django 自带的引擎 #}
-{# 告知pycharm 现在的模板引擎是jinja2 #}
-当前时间：{{ date(birthday, 'Y年m月j日 H时i分s秒 ') }}
+当前时间：{{ birthday|date:'Y年m月j日 H时i分s秒 ' }}
 <br>当前时间：{{ birthday }}
 <hr>
-{#我的简介是:{{ desc|safe }}#}
+我的简介是:{{ desc|safe }}
 我的简介是:{{ desc }}
 <hr>
-{#我没有定义的变量:{{ abcde|default:'~~~~~~~~' }}#}
+我没有定义的变量:{{ abcde|default:'~~~~~~~~' }}
 </body>
 </html>

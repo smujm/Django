@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -63,7 +64,25 @@ ROOT_URLCONF = 'BookManager.urls'
 # 模板相关的配置信息
 TEMPLATES = [
     {
+        # 'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',    # 修改为jinja2模板
+        # DIRS 设置模板路径
+        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        ,
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'environment': 'book.jinja2_env.environment',   # 指定jinja2的环境
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+    {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # 'BACKEND': 'django.template.backends.jinja2.Jinja2',    # 修改为jinja2模板
         # DIRS 设置模板路径
         'DIRS': [os.path.join(BASE_DIR, 'templates')]
         ,

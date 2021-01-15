@@ -310,5 +310,5 @@ class HomeView(View):
         }
         
         uesrname = request.GET.get('username')
-        
+        # return render(request, 'detail.html')
         return render(request, 'index.html', context=context)
