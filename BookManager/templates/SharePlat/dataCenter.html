@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数据中心</title>
+    <script src="./assets/js/fnreSize.js"></script>
+    <script src="./assets/js/jquery.min.js"></script>
+    <!-- <script src="./assets/js/move.js"></script> -->
+    <link rel="stylesheet" href="./assets/scss/dataCenter.css" />
+  </head>
+  <body class="body-box">
+    <div class="data-head">
+      <div class="data-head-name">
+        <img src="./assets/image/icon/data.png" alt="" />
+        <span>数据中心</span>
+      </div>
+      <div class="data-head-content">
+        <div class="search">
+          <input
+            id="myInput"
+            onkeyup="myFunction()"
+            type="text"
+            placeholder="请输入"
+          />
+          <ul id="myUL" class="input-list" style="display: none">
+            <li class="input-list-head" id="open-c">
+              <span>城市建设</span>
+            </li>
+            <li class="input-list-item" id="open-b">
+              <span>玻璃幕墙</span>
+            </li>
+          </ul>
+          <img src="./assets/image/icon/search1.png" alt="" />
+        </div>
+        <div class="logo-box">
+          <img src="./assets/image/icon/user.png" alt="" />
+          <span> 欢迎admin </span>
+          <span>登录</span>
+          <img src="./assets/image/icon/home.png" id="toIndex" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="data-content">
+      <div class="data-nav">
+        <div class="data-nav-item data-nav-item-off" id="city-nav">
+          <span>城市运行</span>
+        </div>
+        <div class="data-nav-item data-nav-item-off" id="traffic-nav">
+          <span>城市要素</span>
+        </div>
+        <div class="data-nav-item data-nav-item-off" id="basics-nav">
+          <span>行业领域</span>
+        </div>
+        <!--  ondragenter="onDragEnter(event)" 
+           ondragleave="onDragLeave(event)"
+         -->
+        <div
+          class="select-box container"
+          id="select-box"
+          ondragover="allowDrop(event)"
+          ondrop="drop(event)"
+          style="display: none"
+        ></div>
+        <div class="select-but" style="display: none">
+          <span class="but-ok">确定</span><span class="but-del">重置</span>
+        </div>
+      </div>
+      <div class="data-content-content">
+        <div class="data-content-nav" id="city" style="display: none">
+          <div class="data-second-item data-second-item-off" id="but1">
+            <img class="icon-gear" src="./assets/image/icon/gear.png" alt="" />
+            <span class="nav-second-text">城市建设</span>
+            <img
+              class="icon-down"
+              id="nav-but1"
+              src="./assets/image/icon/down.png"
+              alt=""
+            />
+          </div>
+          <div class="nav-list nav-list-off" id="nav-show1">
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target1"
+                class="move-nav-item move-nav-item-b move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>玻璃幕墙</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target2"
+                class="move-nav-item move-nav-item-c move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>拆违数据</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target3"
+                class="move-nav-item move-nav-item-d move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>地下设施</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target4"
+                class="move-nav-item move-nav-item-f move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>风险管控</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target5"
+                class="move-nav-item move-nav-item-se move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>工地数据</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target5"
+                class="move-nav-item move-nav-item-se move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>架空线数据</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target6"
+                class="move-nav-item move-nav-item-se move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>进博会数据</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target7"
+                class="move-nav-item move-nav-item-se move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>历史保护建筑</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target8"
+                class="move-nav-item move-nav-item-se move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>一路一方案</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target9"
+                class="move-nav-item move-nav-item-se move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>渣土数据</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target10"
+                class="move-nav-item move-nav-item-se move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>其他数据</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+          </div>
+          <div class="data-second-item data-second-item-off" id="but3">
+            <img class="icon-gear" src="./assets/image/icon/gear.png" alt="" />
+            <span class="nav-second-text">交通</span>
+            <img class="icon-down" src="./assets/image/icon/down.png" alt="" />
+          </div>
+          <div class="nav-list nav-list-off" id="nav-show3">
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target11"
+                class="move-nav-item move-nav-item-se move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>道路交通</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target12"
+                class="move-nav-item move-nav-item-se move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>公共交通</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target13"
+                class="move-nav-item move-nav-item-se move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>设施设备</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target14"
+                class="move-nav-item move-nav-item-se move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>铁路</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                id="target15"
+                class="move-nav-item move-nav-item-se move-nav-item-off"
+                draggable="true"
+                ondragstart="drag(event)"
+              >
+                <span>专题交通</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+          </div>
+          <div class="data-second-item data-second-item-off" id="but2">
+            <img class="icon-gear" src="./assets/image/icon/gear.png" alt="" />
+            <span class="nav-second-text">城市规划</span>
+            <img class="icon-down" src="./assets/image/icon/down.png" alt="" />
+          </div>
+        </div>
+
+        <div class="data-content-nav" id="traffic" style="display: none">
+          <div class="data-second-item data-second-item-off" id="but4">
+            <img class="icon-gear" src="./assets/image/icon/gear.png" alt="" />
+            <span class="nav-second-text">地下空间</span>
+            <img class="icon-down" src="./assets/image/icon/down.png" alt="" />
+          </div>
+          <div class="nav-list nav-list-off" id="nav-show4">
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                draggable="true"
+                ondragstart="drag(event)"
+                id="target16"
+                class="move-nav-item move-nav-item-se move-nav-item-off"
+              >
+                <span>公用民防工程</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                draggable="true"
+                ondragstart="drag(event)"
+                id="target17"
+                class="move-nav-item move-nav-item-se move-nav-item-off"
+              >
+                <span>非公用民防工程</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+            <div class="nav-list-item nav-list-item-off">
+              <div
+                draggable="true"
+                ondragstart="drag(event)"
+                id="target18"
+                class="move-nav-item move-nav-item-se move-nav-item-off"
+              >
+                <span>普通地下室</span>
+                <div class="del-icon"></div>
+              </div>
+            </div>
+          </div>
+          <div class="data-second-item data-second-item-off">
+            <img class="icon-gear" src="./assets/image/icon/gear.png" alt="" />
+            <span class="nav-second-text">公共卫生 </span>
+            <img class="icon-down" src="./assets/image/icon/down.png" alt="" />
+          </div>
+          <div class="data-second-item data-second-item-off">
+            <img class="icon-gear" src="./assets/image/icon/gear.png" alt="" />
+            <span class="nav-second-text">基础地形</span>
+            <img class="icon-down" src="./assets/image/icon/down.png" alt="" />
+          </div>
+          <div class="data-second-item data-second-item-off">
+            <img class="icon-gear" src="./assets/image/icon/gear.png" alt="" />
+            <span class="nav-second-text">遥感影像</span>
+            <img class="icon-down" src="./assets/image/icon/down.png" alt="" />
+          </div>
+          <div class="data-second-item data-second-item-off">
+            <img class="icon-gear" src="./assets/image/icon/gear.png" alt="" />
+            <span class="nav-second-text">兴趣点</span>
+            <img class="icon-down" src="./assets/image/icon/down.png" alt="" />
+          </div>
+
+          <div class="data-second-item data-second-item-off">
+            <img class="icon-gear" src="./assets/image/icon/gear.png" alt="" />
+            <span class="nav-second-text">其他</span>
+            <img class="icon-down" src="./assets/image/icon/down.png" alt="" />
+          </div>
+        </div>
+        <div class="data-content-nav" id="basics" style="display: none">
+          <div class="data-second-item data-second-item-off">
+            <img class="icon-gear" src="./assets/image/icon/gear.png" alt="" />
+            <span class="nav-second-text">综合管线</span>
+            <img class="icon-down" src="./assets/image/icon/down.png" alt="" />
+          </div>
+          <div class="data-second-item data-second-item-off">
+            <img class="icon-gear" src="./assets/image/icon/gear.png" alt="" />
+            <span class="nav-second-text">网格化</span>
+            <img class="icon-down" src="./assets/image/icon/down.png" alt="" />
+          </div>
+        </div>
+        <div class="data-content-map data-content-map-all csbg">
+          <div class="icon-box">
+            <div class="icon-box-item" id="gloab-icon">
+              <img src="./assets/image/icon/table.png" alt="" />
+            </div>
+            <div class="icon-box-item" id="table-icon" style="display: none">
+              <img src="./assets/image/icon/gloab.png" alt="" />
+            </div>
+            <div id="versions" class="icon-box-item">
+              <img src="./assets/image/icon/versions.png" alt="" />
+            </div>
+          </div>
+          <div class="version-box version-box-off">
+            <div class="version-off" id="version-off"></div>
+            <div class="version-item-box" id="soll-box">
+              <div class="version-item">
+                <span>v.2019.12.20</span>
+              </div>
+              <div class="version-item">
+                <span>v.2018.12.20</span>
+              </div>
+              <div class="version-item">
+                <span>v.2017.12.20</span>
+              </div>
+              <div class="version-item">
+                <span>v.2016.12.20</span>
+              </div>
+              <div class="version-item">
+                <span>v.2015.12.20</span>
+              </div>
+              <div class="version-item">
+                <span>v.2014.12.20</span>
+              </div>
+              <div class="version-item">
+                <span>v.2013.12.20</span>
+              </div>
+            </div>
+          </div>
+          <div class="data-tabel-box" style="display: none"></div>
+          <div class="dot-box">
+            <div class="dot-popup" style="display: none"></div>
+          </div>
+          <!-- <div class="cutline-box cutline-box-on"></div> -->
+        </div>
+      </div>
+    </div>
+    <script>
+      // 设置导航
+      window.localStorage.setItem("setNavData", "");
+      let toDataCenter = window.localStorage.getItem("toDataCenter");
+      $(".dot-box").hide();
+      if (toDataCenter == "城市运行") {
+        $(".data-content-nav").hide();
+        $("#city").show();
+        $(".data-nav-item")
+          .removeClass("data-nav-item-on")
+          .addClass("data-nav-item-off");
+        $("#city-nav")
+          .removeClass("data-nav-item-off")
+          .addClass("data-nav-item-on");
+        $(".data-content-map")
+          .removeClass("data-content-map-all")
+          .addClass("data-content-map-on");
+      } else if (toDataCenter == "城市要素") {
+        $(".data-content-nav").hide();
+        $("#traffic").show();
+        $(".data-nav-item")
+          .removeClass("data-nav-item-on")
+          .addClass("data-nav-item-off");
+        $("#traffic-nav")
+          .removeClass("data-nav-item-off")
+          .addClass("data-nav-item-on");
+        $(".data-content-map")
+          .removeClass("data-content-map-all")
+          .addClass("data-content-map-on");
+      } else if (toDataCenter == "行业领域") {
+        $(".data-content-nav").hide();
+        $("#basics").show();
+        $(".data-nav-item")
+          .removeClass("data-nav-item-on")
+          .addClass("data-nav-item-off");
+        $("#basics-nav")
+          .removeClass("data-nav-item-off")
+          .addClass("data-nav-item-on");
+        $(".data-content-map")
+          .removeClass("data-content-map-all")
+          .addClass("data-content-map-on");
+      } else if (toDataCenter == "行业领域") {
+        $(".data-content-map")
+          .removeClass("data-content-map-on")
+          .addClass("data-content-map-all");
+      } else if (toDataCenter == "玻璃幕墙") {
+        $(".data-content-nav").hide();
+        $("#city").show();
+        $(".data-nav-item")
+          .removeClass("data-nav-item-on")
+          .addClass("data-nav-item-off");
+        $("#city-nav")
+          .removeClass("data-nav-item-off")
+          .addClass("data-nav-item-on");
+        $(".data-content-map")
+          .removeClass("data-content-map-all")
+          .addClass("data-content-map-on");
+        $("#nav-show1").removeClass("nav-list-off").addClass("nav-list-on");
+        $(".data-content-map")
+          .removeClass("csbg bg-c bg-d  bg-f bg-all")
+          .addClass("bg-b ");
+        $("#myUL").hide();
+        window.localStorage.setItem("setNavData", "玻璃幕墙");
+        $(".move-nav-item-b")
+          .addClass("move-nav-item-on")
+          .removeClass("move-nav-item-off");
+        $("#but1")
+          .addClass("data-second-item-on")
+          .removeClass("data-second-item-off");
+        $(".dot-box").show();
+        $(".dot-box").addClass("dot-box-b");
+        $(".dot-popup").addClass("dot-popup-b");
+        $(".select-but").show();
+        $(".select-box").show();
+      } else if (toDataCenter == "城市建设") {
+        $(".data-content-nav").hide();
+        $("#city").show();
+
+        $("#city-nav")
+          .removeClass("data-nav-item-off")
+          .addClass("data-nav-item-on");
+        $(".data-content-map")
+          .removeClass("data-content-map-all")
+          .addClass("data-content-map-on");
+        $("#nav-show1").removeClass("nav-list-off").addClass("nav-list-on");
+        $(".data-content-map")
+          .removeClass(" bg-b  bg-c bg-d  bg-f bg-all")
+          .addClass("csbg");
+        $("#myUL").hide();
+        // window.localStorage.setItem("setNavData", "玻璃幕墙");
+        // $(".move-nav-item-b")
+        //   .addClass("move-nav-item-on")
+        //   .removeClass("move-nav-item-off");
+        $("#but1")
+          .addClass("data-second-item-on")
+          .removeClass("data-second-item-off");
+        $(".dot-box").show();
+        $(".dot-box").addClass("dot-box-b");
+        $(".dot-popup").addClass("dot-popup-b");
+        $(".select-but").hide();
+        $(".select-box").hide();
+        $(".data-nav-item")
+          .removeClass("data-nav-item-on")
+          .addClass("data-nav-item-off");
+      }
+
+      // 打开指定 open-b
+
+      $("#open-b").click(function () {
+        $(".move-nav-item")
+          .addClass("move-nav-item-off")
+          .removeClass("move-nav-item-on");
+        $(".data-content-nav").hide();
+        $("#city").show();
+        $(".data-nav-item")
+          .removeClass("data-nav-item-on")
+          .addClass("data-nav-item-off");
+        $("#city-nav")
+          .removeClass("data-nav-item-off")
+          .addClass("data-nav-item-on");
+        $(".data-content-map")
+          .removeClass("data-content-map-all")
+          .addClass("data-content-map-on");
+        $("#nav-show1").removeClass("nav-list-off").addClass("nav-list-on");
+        $(".data-content-map")
+          .removeClass("csbg bg-c bg-d  bg-f bg-all")
+          .addClass("bg-b ");
+        $("#myUL").hide();
+        window.localStorage.setItem("setNavData", "玻璃幕墙");
+        $(".move-nav-item-b")
+          .addClass("move-nav-item-on")
+          .removeClass("move-nav-item-off");
+        $("#but1")
+          .addClass("data-second-item-on")
+          .removeClass("data-second-item-off");
+
+        $(".dot-box").addClass("dot-box-b");
+        $(".dot-popup").addClass("dot-popup-b");
+        $(".dot-popup").hide();
+        $(".dot-box").show();
+        $(".select-but").show();
+        $(".select-box").show();
+      });
+      $("#open-c").click(function () {
+        $(".move-nav-item")
+          .addClass("move-nav-item-off")
+          .removeClass("move-nav-item-on");
+        $(".data-content-nav").hide();
+        $("#city").show();
+        $(".data-nav-item")
+          .removeClass("data-nav-item-on")
+          .addClass("data-nav-item-off");
+        $("#city-nav")
+          .removeClass("data-nav-item-off")
+          .addClass("data-nav-item-on");
+        $(".data-content-map")
+          .removeClass("data-content-map-all")
+          .addClass("data-content-map-on");
+        $("#nav-show1").removeClass("nav-list-off").addClass("nav-list-on");
+        $(".data-content-map")
+          .removeClass("bg-b  bg-c bg-d  bg-f bg-all")
+          .addClass("csbg");
+        $("#myUL").hide();
+        // window.localStorage.setItem("setNavData", "玻璃幕墙");
+        // $(".move-nav-item-b")
+        //   .addClass("move-nav-item-on")
+        //   .removeClass("move-nav-item-off");
+        $("#but1")
+          .addClass("data-second-item-on")
+          .removeClass("data-second-item-off");
+
+        $(".dot-box").addClass("dot-box-b");
+        $(".dot-popup").addClass("dot-popup-b");
+        $(".dot-popup").hide();
+        $(".dot-box").show();
+        $(".select-but").hide();
+        $(".select-box").hide();
+      });
+      //点击事件  切换栏目
+      $("#city-nav").click(function () {
+        $(".dot-popup").hide();
+        $(".data-content-nav").hide();
+        $("#city").show();
+        $(".data-nav-item")
+          .removeClass("data-nav-item-on")
+          .addClass("data-nav-item-off");
+        $("#city-nav")
+          .removeClass("data-nav-item-off")
+          .addClass("data-nav-item-on");
+        $(".data-content-map")
+          .removeClass("data-content-map-all")
+          .addClass("data-content-map-on");
+      });
+      $("#traffic-nav").click(function () {
+        $(".dot-popup").hide();
+        $(".dot-box").hide();
+        $(".data-tabel-box").hide();
+        window.localStorage.setItem("setNavData", "");
+        $(".data-content-nav").hide();
+        $("#traffic").show();
+        $(".data-nav-item")
+          .removeClass("data-nav-item-on")
+          .addClass("data-nav-item-off");
+        $("#traffic-nav")
+          .removeClass("data-nav-item-off")
+          .addClass("data-nav-item-on");
+        $(".data-content-map")
+          .removeClass("data-content-map-all csbg bg-b bg-c bg-d bg-f bg-all")
+          .addClass("data-content-map-on csbg");
+      });
+      $("#basics-nav").click(function () {
+        $(".dot-popup").hide();
+        $(".dot-box").hide();
+        $(".data-tabel-box").hide();
+        window.localStorage.setItem("setNavData", "");
+        $(".data-content-nav").hide();
+        $("#basics").show();
+        $(".data-nav-item")
+          .removeClass("data-nav-item-on")
+          .addClass("data-nav-item-off");
+        $("#basics-nav")
+          .removeClass("data-nav-item-off")
+          .addClass("data-nav-item-on");
+        $(".data-content-map")
+          .removeClass("data-content-map-all csbg bg-b bg-c bg-d bg-f bg-all")
+          .addClass("data-content-map-on csbg");
+      });
+      //  三级目录展开收缩
+      let navShow1 = false;
+      let navShow3 = false;
+      let navShow4 = false;
+      $("#but1").click(function () {
+        // $(".data-content-map").removeClass("bg2, bg3, bg4").addClass("csbg");
+        if (navShow1 == false) {
+          navShow1 = !navShow1;
+          $("#nav-show1").removeClass("nav-list-off").addClass("nav-list-on");
+        } else {
+          navShow1 = !navShow1;
+          $("#nav-show1").removeClass("nav-list-on").addClass("nav-list-off");
+        }
+      });
+
+      $("#but3").click(function () {
+        $(".data-content-map").removeClass("csbg, bg2, bg4").addClass("bg3");
+        if (navShow3 == false) {
+          navShow3 = !navShow3;
+          $("#nav-show3").removeClass("nav-list-off").addClass("nav-list-on");
+        } else {
+          navShow3 = !navShow3;
+          $("#nav-show3").removeClass("nav-list-on").addClass("nav-list-off");
+        }
+      });
+      $("#but4").click(function () {
+        if (navShow4 == false) {
+          navShow4 = !navShow4;
+          $("#nav-show4").removeClass("nav-list-off").addClass("nav-list-on");
+        } else {
+          navShow4 = !navShow4;
+          $("#nav-show4").removeClass("nav-list-on").addClass("nav-list-off");
+        }
+      });
+      $(".move-nav-item-b").click(function () {
+        $(".dot-popup").hide();
+        $("#table-icon").hide();
+        $("#gloab-icon").show();
+        $(".data-tabel-box").hide();
+        $(".data-content-map")
+          .removeClass("csbg bg-c bg-d  bg-f bg-all")
+          .addClass("bg-b ");
+        $(".move-nav-item")
+          .addClass("move-nav-item-off")
+          .removeClass("move-nav-item-on");
+        $(this).addClass("move-nav-item-on").removeClass("move-nav-item-off");
+        window.localStorage.setItem("setNavData", "玻璃幕墙");
+        $(".dot-box").show();
+        $(".dot-box")
+          .removeClass("dot-box-c dot-box-d dot-box-f")
+          .addClass("dot-box-b");
+        $(".dot-popup")
+          .removeClass("dot-popup-c dot-popup-d dot-popup-f")
+          .addClass("dot-popup-b");
+        $(".select-but").show();
+        $(".select-box").show();
+      });
+
+      $(".move-nav-item-c").click(function () {
+        $(".dot-popup").hide();
+        $("#table-icon").hide();
+        $("#gloab-icon").show();
+        $(".data-tabel-box").hide();
+        $(".data-content-map")
+          .removeClass("csbg bg-b bg-d  bg-f bg-all")
+          .addClass("bg-c ");
+        $(".move-nav-item")
+          .addClass("move-nav-item-off")
+          .removeClass("move-nav-item-on");
+        $(this).addClass("move-nav-item-on").removeClass("move-nav-item-off");
+        window.localStorage.setItem("setNavData", "拆违数据");
+        $(".dot-box").show();
+        $(".dot-box")
+          .removeClass("dot-box-b  dot-box-d dot-box-f")
+          .addClass("dot-box-c");
+        $(".dot-popup")
+          .removeClass("dot-popup-b  dot-popup-d dot-popup-f")
+          .addClass("dot-popup-c");
+        $(".select-but").show();
+        $(".select-box").show();
+      });
+      $(".move-nav-item-d").click(function () {
+        $(".dot-popup").hide();
+        $("#table-icon").hide();
+        $("#gloab-icon").show();
+        $(".data-tabel-box").hide();
+        $(".data-content-map")
+          .removeClass("csbg bg-b bg-c  bg-f bg-all")
+          .addClass("bg-d");
+        $(".move-nav-item")
+          .addClass("move-nav-item-off")
+          .removeClass("move-nav-item-on");
+        $(this).addClass("move-nav-item-on").removeClass("move-nav-item-off");
+        window.localStorage.setItem("setNavData", "地下设施");
+        $(".dot-box").show();
+        $(".dot-box")
+          .removeClass("dot-box-b dot-box-c  dot-box-f")
+          .addClass("dot-box-d");
+        $(".dot-popup")
+          .removeClass("dot-popup-b dot-popup-c  dot-popup-f")
+          .addClass("dot-popup-d");
+        $(".select-but").show();
+        $(".select-box").show();
+      });
+      $(".move-nav-item-f").click(function () {
+        $(".dot-popup").hide();
+        $("#table-icon").hide();
+        $("#gloab-icon").show();
+        $(".data-tabel-box").hide();
+        $(".data-content-map")
+          .removeClass("csbg bg-b bg-c bg-d bg-all")
+          .addClass("bg-f");
+        $(".move-nav-item")
+          .addClass("move-nav-item-off")
+          .removeClass("move-nav-item-on");
+        $(this).addClass("move-nav-item-on").removeClass("move-nav-item-off");
+        window.localStorage.setItem("setNavData", "风险管控");
+        $(".dot-box").show();
+        $(".dot-box")
+          .removeClass("dot-box-b dot-box-c dot-box-d ")
+          .addClass("dot-box-f");
+        $(".dot-popup")
+          .removeClass("dot-popup-b dot-popup-c dot-popup-d")
+          .addClass(" dot-popup-f");
+        $(".select-but").show();
+        $(".select-box").show();
+      });
+
+      $(".dot-box").click(function () {
+        let setNavData = window.localStorage.getItem("setNavData");
+
+        if (setNavData == "玻璃幕墙") {
+          $(".dot-popup").toggle();
+        } else if (setNavData == "拆违数据") {
+          $(".dot-popup").toggle();
+        } else if (setNavData == "地下设施") {
+          $(".dot-popup").toggle();
+        } else if (setNavData == "风险管控") {
+          $(".dot-popup").toggle();
+        } else if (setNavData == "") {
+          // $('.dot-popup').()
+        }
+      });
+      // $("#move-nav").click(function () {
+      //   $("#table-icon").hide();
+      //   $("#gloab-icon").show();
+      //   $(".data-tabel-box").hide();
+      //   $(".data-content-map")
+      //     .removeClass("csbg bg-b bg-c bg-d bg-f")
+      //     .addClass("csbg");
+      //   $(".move-nav-item")
+      //     .addClass("move-nav-item-off")
+      //     .removeClass("move-nav-item-on");
+      //   $(this).addClass("move-nav-item-on").removeClass("move-nav-item-off");
+      //   window.localStorage.setItem("setNavData", "");
+      // });
+      // 三级目录
+      $(".move-nav-item-se").click(function () {
+        $("#table-icon").hide();
+        $("#gloab-icon").show();
+        $(".data-tabel-box").hide();
+        $(".data-content-map")
+          .removeClass("bg-f  bg-b bg-c bg-d")
+          .addClass("csbg");
+        $(".dot-popup").hide();
+        $(".dot-box").hide();
+        $(".move-nav-item")
+          .addClass("move-nav-item-off")
+          .removeClass("move-nav-item-on");
+        $(this).addClass("move-nav-item-on").removeClass("move-nav-item-off");
+        window.localStorage.setItem("setNavData", "");
+        $(".select-but").show();
+        $(".select-box").show();
+      });
+
+      $(".but-ok").click(function () {
+        $(".data-content-map")
+          .removeClass("bg-f  bg-b bg-c bg-d csbg ")
+          .addClass("bg-all");
+        $(".dot-popup").hide();
+        $(".dot-box").hide();
+      });
+
+      $("#toIndex").click(function () {
+        window.location.href = "./index.html";
+      });
+
+      function myFunction() {
+        // 声明变量
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInput");
+        filter = input.value;
+        // .toUpperCase()
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByClassName("input-list-item");
+        if (filter != "") {
+          ul.style.display = "block";
+        } else if (filter == "") {
+          ul.style.display = "none";
+        }
+      }
+
+      // 设置nav颜色
+      $(".data-second-item").click(function () {
+        $(".data-second-item")
+          .addClass("data-second-item-off")
+          .removeClass("data-second-item-on");
+        $(this)
+          .addClass("data-second-item-on")
+          .removeClass("data-second-item-off");
+      });
+
+      // 版本
+      $("#versions").click(function () {
+        $(".version-box")
+          .addClass("version-box-on")
+          .removeClass("version-box-off");
+      });
+      $("#version-off").click(function () {
+        $(".version-box")
+          .addClass("version-box-off")
+          .removeClass("version-box-on");
+      });
+
+      // 表地图切换
+
+      $("#gloab-icon").click(function () {
+        $(".dot-popup").hide();
+        let setNavData = window.localStorage.getItem("setNavData");
+        $("#gloab-icon").hide();
+        $("#table-icon").show();
+        if (setNavData == "玻璃幕墙") {
+          $(".data-tabel-box").show();
+          $(".data-tabel-box")
+            .removeClass("bg-tb bg-tc bg-td  bg-tf")
+            .addClass("bg-tb");
+        } else if (setNavData == "拆违数据") {
+          $(".data-tabel-box").show();
+          $(".data-tabel-box")
+            .removeClass("bg-tb  bg-td  bg-tf")
+            .addClass("bg-tc");
+        } else if (setNavData == "地下设施") {
+          $(".data-tabel-box").show();
+          $(".data-tabel-box")
+            .removeClass("bg-tb bg-tc   bg-tf")
+            .addClass("bg-td");
+        } else if (setNavData == "风险管控") {
+          $(".data-tabel-box").show();
+          $(".data-tabel-box")
+            .removeClass("bg-tb bg-tc bg-td  ")
+            .addClass("bg-tf");
+        } else if (setNavData == "") {
+          $(".data-tabel-box").hide();
+          $(".data-tabel-box").removeClass("bg-tb bg-tc bg-td  bg-tf");
+        }
+      });
+      $("#table-icon").click(function () {
+        $(".dot-popup").hide();
+        let setNavData = window.localStorage.getItem("setNavData");
+        $("#table-icon").hide();
+        $("#gloab-icon").show();
+        $(".data-tabel-box").hide();
+      });
+
+      //表格自动滚动
+      function table_scroll(id, speed) {
+        var table_scroll_time;
+        this.start = function () {
+          clearInterval(table_scroll_time);
+          var scrolldiv = document.getElementById(id);
+          var $h_num = document.getElementById(id).scrollHeight;
+          var $h_num_1 = document.getElementById(id).clientHeight;
+
+          scrolldiv.scrollTop = 0;
+          if ($h_num >= $h_num_1) {
+            var $scroll_top = $h_num - $h_num_1 - 1;
+            var Marquee = function () {
+              if (scrolldiv.scrollTop >= $scroll_top) {
+                scrolldiv.scrollTop = 0;
+              } else {
+                scrolldiv.scrollTop++;
+              }
+            };
+            table_scroll_time = setInterval(Marquee, speed);
+            scrolldiv.onmouseenter = function () {
+              clearInterval(table_scroll_time);
+            };
+            scrolldiv.onmouseleave = function () {
+              clearInterval(table_scroll_time);
+              table_scroll_time = setInterval(Marquee, speed);
+            };
+          }
+        };
+      }
+      var table_scroll_start = new table_scroll("soll-box", 50);
+
+      $(".body-box").on("click", ".select-nav-item", function () {
+        $(this).hide();
+      });
+      table_scroll_start.start();
+      window.onbeforeunload = function (e) {
+        window.localStorage.setItem("toDataCenter", "");
+      };
+    </script>
+    <script>
+      //  接收的方法
+      let dataArr = [];
+      function allowDrop(even) {
+        even.preventDefault();
+      }
+      function adddiv(even) {
+        console.log(even);
+        $("#select-box").html(even);
+      }
+      // 重置
+      $(".but-del").click(function () {
+        $("#select-box").empty();
+        $(".data-content-map")
+          .removeClass(" bg-b  bg-c bg-d  bg-f bg-all")
+          .addClass("csbg");
+        dataArr = [];
+      });
+      function drop(even) {
+        even.preventDefault();
+
+        let dataId = even.dataTransfer.getData("Text");
+        if (dataArr.indexOf(dataId) < 0) {
+          dataArr.push(dataId);
+        }
+        console.log(dataArr);
+        let addDome;
+        let addDomeArr = [];
+        $("#select-box .nav-list-item").remove();
+        for (let i = 0; i < dataArr.length; i++) {
+          // addDome = "<b class='move-nav-item'><span>1</span> </b>\n"
+          console.log(dataArr[i]);
+          addDome =
+            "<div class='select-nav-item'><span>" +
+            dataArr[i] +
+            "</span> <div class='del-icon'></div></div>";
+          // addDome = "<div id="target1" class="move-nav-item move-nav-item-b move-nav-item-off">" +
+          //    "<span>" + dataArr[i] + "</span>" + "<div class="del-icon">" + "</div>" + "</div>";
+          addDomeArr.push(addDome);
+          console.log(addDomeArr);
+          // adddiv(addDomeArr[i])
+        }
+
+        $("#select-box").html(addDomeArr.join(""));
+        console.log($("#select-box"));
+      }
+
+      function drag(even) {
+        console.log(even.srcElement.innerText);
+        console.log(even);
+        // console.log(even.target.id + '移除');
+        even.dataTransfer.setData("Text", even.srcElement.innerText);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,703 @@
+@import "./base.scss";
+
+.body-box {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: $bg_color;
+}
+
+.data-head {
+  width: 100vw;
+  height: 1rem;
+  display: flex;
+  justify-content: space-between;
+
+  .data-head-name {
+    width: 3.3rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    >img {
+      width: 0.33rem;
+    }
+
+    >span {
+      display: inline-block;
+      margin: 0 0.3rem;
+      font-size: 0.24rem;
+    }
+  }
+
+  .data-head-content {
+    width: calc(100vw - 3.3rem);
+    height: 1rem;
+    display: flex;
+    padding: 0 0.3rem;
+    justify-content: space-between;
+    align-items: center;
+
+    .search {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 4.6rem;
+      background: #ffffff;
+      border-radius: 0.28rem;
+      position: relative;
+
+      .input-list {
+        position: absolute;
+        left: 0;
+        top: 0.7rem;
+        width: 4.6rem;
+        height: auto;
+        background-color: #f3f3f3;
+        z-index: 99;
+
+        .input-list-item {
+          border: 1px solid #ddd;
+          /* 链接添加边框 */
+          margin-top: -1px;
+          background-color: #f6f6f6;
+          padding: 0.12rem;
+          text-decoration: none;
+          font-size: 0.18rem;
+          display: block;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #eee;
+          }
+
+          span {
+            display: inline-block;
+        padding-left: 0.1rem;
+        color: #4e4e4e;
+          }
+        }
+        .input-list-head {
+          border: 1px solid #ddd;
+          /* 链接添加边框 */
+          margin-top: -1px;
+          background-color: #acaaaa;
+          padding: 0.12rem;
+          text-decoration: none;
+          font-size: 0.18rem;
+          display: block;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #eee;
+          }
+
+          span {
+            color: black;
+          }
+        }
+      }
+
+      >input {
+        width: 4rem;
+        height: 0.56rem;
+        background: #ffffff;
+        border-bottom-left-radius: 0.28rem;
+        border-top-left-radius: 0.28rem;
+        padding-left: 0.3rem;
+      }
+
+      >img {
+        width: 0.24rem;
+        margin-right: 0.2rem;
+      }
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: flex-end;
+
+      >span {
+        font-size: 0.2rem;
+        display: inline-block;
+        margin: 0 0.2rem;
+      }
+
+      >img {
+        width: 0.24rem;
+      }
+    }
+  }
+}
+
+.data-content {
+  width: 100vw;
+  height: calc(100vh - 1rem);
+  display: flex;
+
+  .data-nav {
+    width: 2.7rem;
+    height: calc(100vh - 1rem);
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+
+    .data-nav-item {
+      margin-bottom: 0.2rem;
+      width: 2.7rem;
+      height: 0.72rem;
+      cursor: pointer;
+      text-align: center;
+      position: relative;
+
+      &:hover {
+        background: rgba($color: #9dbaff, $alpha: 0.2);
+      }
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        content: "";
+        display: block;
+        width: 0.1rem;
+        height: 0.48rem;
+        background-color: #7ecef4;
+        transform: translateY(-50%);
+      }
+
+      >span {
+        position: absolute;
+        top: 0;
+        left: 0.5rem;
+        display: inline-block;
+        line-height: 0.72rem;
+        font-size: 0.18rem;
+      }
+    }
+
+    .data-nav-item-off {
+      transition: all 0.8s;
+      background: transparent;
+    }
+
+    .data-nav-item-on {
+      transition: all 0.8s;
+      background: rgba($color: #9dbaff, $alpha: 0.2);
+    }
+  }
+
+  .data-content-content {
+    width: calc(100vw - 2.7rem);
+    height: calc(100vh - 1rem);
+    display: flex;
+    background-color: #ececec;
+
+    .data-content-nav {
+      margin: 0.2rem 0rem 0.2rem 0.16rem;
+      padding: 0.2rem 0;
+      width: 3rem;
+      height: calc(100vh - 1rem- 0.4rem);
+      overflow-y: auto;
+      border-radius: 0.1rem;
+      background-color: #ffffff;
+
+      .data-second-item-off {
+        background-color: #145394;
+      }
+
+      .data-second-item-on {
+        background-color: #008ac4;
+      }
+
+      .data-second-item {
+        margin-left: 0.2rem;
+
+        width: 2rem;
+        height: 0.46rem;
+        border-radius: 0.1rem;
+        position: relative;
+        color: #ececec;
+
+        &:hover {
+          color: #ffffff;
+          background-color: #008ac4;
+        }
+
+        &:not(:first-child) {
+          margin-top: 0.2rem;
+        }
+
+        .nav-second-text {
+          position: absolute;
+          font-size: 0.18rem;
+          left: 0.4rem;
+          top: 50%;
+          display: inline-block;
+          transform: translateY(-50%);
+        }
+
+        .icon-gear {
+          position: absolute;
+          left: 0.1rem;
+          top: 50%;
+          width: 0.17rem;
+          height: 0.17rem;
+          transform: translateY(-50%);
+        }
+
+        .icon-down {
+          position: absolute;
+          right: 0.1rem;
+          top: 50%;
+          width: 0.09rem;
+          height: 0.09rem;
+          transform: translateY(-50%);
+        }
+      }
+
+      .nav-list-off {
+        height: 0;
+        opacity: 0;
+        transition: all 0.8s;
+
+        .nav-list-item {
+          // height: 0;
+          display: none;
+        }
+      }
+
+      .nav-list-on {
+        height: auto;
+        opacity: 1;
+        transition: all 0.8s;
+
+        .nav-list-item {
+          display: block;
+          height: 0.28rem;
+        }
+      }
+
+      .nav-list {
+        position: relative;
+        left: 0.5rem;
+        width: 1.45rem;
+
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: -0.15rem;
+          width: 1px;
+          height: 100%;
+          left: 0.05rem;
+          border-left: 0.01rem dashed #145394;
+        }
+
+        .nav-list-item {
+          font-size: 0.18rem;
+          color: #ffffff;
+          width: 2rem;
+          background-size: 100%;
+          margin-top: 0.15rem;
+          position: relative;
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0.45rem;
+            height: 0.01rem;
+            left: 0.05rem;
+            border-top: 0.01rem dashed #145394;
+          }
+
+          .move-nav-item {
+            display: inline-block;
+            width: 1.5rem;
+            height: 0.28rem;
+            line-height: 0.28rem;
+            margin-left: 0.5rem;
+            padding: 0.02rem 0.1rem;
+            font-size: 0.18rem;
+            color: #ffffff;
+            z-index: 10;
+
+            &:hover {
+              background-color: #008ac4;
+              box-shadow: 0.02rem 0.03rem 0 rgba(3, 137, 240, 0.8);
+            }
+
+            .del-icon {
+              display: none;
+            }
+          }
+
+          .move-nav-item-off {
+            background-color: #145394;
+            box-shadow: 0.02rem 0.03rem 0 rgba(20, 83, 148, 0.8);
+          }
+
+          .move-nav-item-on {
+            background-color: #008ac4;
+            box-shadow: 0.02rem 0.03rem 0 rgba(3, 137, 240, 0.8);
+          }
+        }
+      }
+    }
+
+    .data-content-map-all {
+      width: calc(100vw - 2.7rem - 0.16rem);
+    }
+
+    .data-content-map-on {
+      width: calc(100vw - 2.7rem - 3rem - 0.16rem);
+    }
+
+    .data-content-map {
+      margin: 0.2rem 0.16rem 0.2rem 0.16rem;
+      height: calc(100vh - 1.4rem);
+      overflow: hidden;
+      border-radius: 0.1rem;
+      background-color: #ffffff;
+      position: relative;
+
+      .icon-box {
+        position: absolute;
+        z-index: 999;
+        top: 0.2rem;
+        right: 0.2rem;
+        width: 1.6rem;
+        display: flex;
+
+        .icon-box-item {
+          width: 0.6rem;
+          height: 0.6rem;
+          margin-left: 0.2rem;
+          display: flex;
+          cursor: pointer;
+          border-radius: 0.1rem;
+
+          background-color: rgba($color: #00214d, $alpha: 0.87);
+          justify-content: center;
+          align-items: center;
+
+          &:hover {
+            background-color: #008ac4;
+          }
+
+          >img {
+            width: 0.35rem;
+          }
+        }
+      }
+
+      // 版本
+      .version-box-off {
+        right: -1.2rem;
+        opacity: 0;
+        transition: all 0.8s;
+      }
+
+      .version-box-on {
+        right: 0.1rem;
+        opacity: 1;
+        transition: all 0.8s;
+      }
+
+      .version-box {
+        z-index: 30;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2.5rem;
+        height: 6rem;
+        background-color: rgba($color: #00214d, $alpha: 0.8);
+
+        .version-off {
+          position: absolute;
+          width: 0.1rem;
+          height: 0.3rem;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0.1rem;
+          cursor: pointer;
+          background: url("../image/icon/left.png") center center no-repeat;
+          background-size: 100%;
+        }
+
+        .version-item-box {
+          width: 2.05rem;
+          height: 5.75rem;
+          overflow-y: auto;
+          overflow-x: hidden;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0.1rem;
+
+          .version-item {
+            width: 2.05rem;
+            height: 1.28rem;
+            background: url("../image/icon/version-bg.png") center center no-repeat;
+            background-size: 100%;
+            margin-bottom: 0.16rem;
+            display: flex;
+            align-items: flex-end;
+
+            span {
+              width: 100%;
+              text-align: center;
+              display: inline-block;
+              font-size: 0.18rem;
+              color: #ffffff;
+              line-height: 0.3rem;
+            }
+          }
+        }
+      }
+
+      .data-tabel-box {
+        position: absolute;
+        width: calc(100vw - 2.7rem - 3rem - 0.16rem);
+        height: calc(100vh - 1.4rem);
+        left: 0;
+        top: 0;
+        z-index: 20;
+      }
+
+      .dot-box {
+        position: absolute;
+        top: 4rem;
+        left: 2rem;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        z-index: 11;
+        cursor: pointer;
+
+        .dot-popup {
+          position: absolute;
+          bottom: 10px;
+          left: 20px;
+          width: 2.78rem;
+        }
+      }
+
+      .dot-box-b {
+        background-color: rgba($color: #a87002, $alpha: 1);
+
+        &:hover {
+          background-color: rgba($color: #a87002, $alpha: 0.8);
+        }
+
+        .dot-popup-b {
+          height: 2.17rem;
+          background: url("../image/PNG/玻璃幕墙/玻璃幕墙状态.png") center center no-repeat;
+          background-size: 100%;
+          bottom: -0.6rem;
+        }
+      }
+
+      .dot-box-c {
+        background-color: rgba($color: #a83800, $alpha: 1);
+
+        &:hover {
+          background-color: rgba($color: #a83800, $alpha: 0.8);
+        }
+
+        .dot-popup-c {
+          height: 1.47rem;
+          background: url("../image/PNG/拆违数据/拆违数据状态.png") center center no-repeat;
+          background-size: 100%;
+        }
+      }
+
+      .dot-box-d {
+        background-color: rgba($color: #ff5500, $alpha: 1);
+
+        &:hover {
+          background-color: rgba($color: #ff5500, $alpha: 0.8);
+        }
+
+        .dot-popup-d {
+          height: 1.47rem;
+          background: url("../image/PNG/地下设施/地下设施状态.png") center center no-repeat;
+          background-size: 100%;
+        }
+      }
+
+      .dot-box-f {
+        background-color: rgba($color: #feff73, $alpha: 1);
+
+        &:hover {
+          background-color: rgba($color: #feff73, $alpha: 0.8);
+        }
+
+        .dot-popup-f {
+          bottom: -0.6rem;
+          height: 2.17rem;
+          background: url("../image/PNG/风险管控/风险管控状态.png") center center no-repeat;
+          background-size: 100%;
+        }
+      }
+    }
+
+    .csbg {
+      background-image: url("../image/PNG/全市.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+    }
+
+    .bg-b {
+      background: url("../image/PNG/玻璃幕墙/玻璃幕墙.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+    }
+
+    .bg-c {
+      background: url("../image/PNG/拆违数据/拆违数据.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+    }
+
+    .bg-d {
+      background: url("../image/PNG/地下设施/地下设施.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+    }
+
+    .bg-f {
+      background: url("../image/PNG/风险管控/风险管控.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+    }
+    .bg-all {
+
+      background: url("../image/PNG/4和1/4合1.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+
+    }
+  }
+}
+
+.select-box {
+  width: 2.5rem;
+  margin: 0.2rem auto 0 auto;
+  min-height: 3rem;
+  border: 1px solid #9dbaff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.3rem 0;
+  border-top: 3px solid #9dbaff;
+
+  .select-nav-item {
+    display: inline-block;
+    width: 1.9rem;
+    height: 0.28rem;
+    line-height: 0.28rem;
+    // margin-left: 0.5rem;
+    padding: 0.02rem 0.1rem;
+    font-size: 0.18rem;
+    color: #ffffff;
+    z-index: 10;
+    background-color: #008ac4;
+    position: relative;
+    margin-bottom: 0.2rem;
+
+    // box-shadow: 0.02rem 0.03rem 0 rgba(3, 137, 240, 0.8);
+    &:hover {
+      background-color: #008ac4;
+      // box-shadow: 0.02rem 0.03rem 0 rgba(3, 137, 240, 0.8);
+    }
+
+    .del-icon {
+      position: absolute;
+      width: 0.2rem;
+      height: 0.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0.05rem;
+      background-color: #ffffff;
+      border-radius: 50%;
+      background: url("../image/icon/del.png") center center no-repeat;
+      background-size: 0.15rem;
+    }
+  }
+}
+
+.select-nav-item {
+  display: inline-block;
+  width: 1.9rem;
+  height: 0.28rem;
+  line-height: 0.28rem;
+  // margin-left: 0.5rem;
+  padding: 0.02rem 0.1rem;
+  font-size: 0.18rem;
+  color: #ffffff;
+  z-index: 10;
+  background-color: #008ac4;
+
+  // box-shadow: 0.02rem 0.03rem 0 rgba(3, 137, 240, 0.8);
+  &:hover {
+    background-color: #008ac4;
+    // box-shadow: 0.02rem 0.03rem 0 rgba(3, 137, 240, 0.8);
+  }
+}
+
+.bg-tb {
+  background: url("../image/PNG/玻璃幕墙/玻璃幕墙表格.png") center center no-repeat;
+  background-size: calc(100vw - 2.7rem - 3rem - 0.16rem);
+  background-position: left top;
+}
+
+.bg-tc {
+  background: url("../image/PNG/拆违数据/拆违数据表格.png") center center no-repeat;
+  background-size: calc(100vw - 2.7rem - 3rem - 0.16rem);
+  background-position: left top;
+}
+
+.bg-td {
+  background: url("../image/PNG/地下设施/地下设施表格.png") center center no-repeat;
+  background-size: calc(100vw - 2.7rem - 3rem - 0.16rem);
+  background-position: left top;
+}
+
+.bg-tf {
+  background: url("../image/PNG/风险管控/风险管控表格.png") center center no-repeat;
+  background-size: calc(100vw - 2.7rem - 3rem - 0.16rem);
+  background-position: left top;
+}
+
+.select-but{
+  width: 2.5rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  span{
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.35rem;
+    font-size: 0.18rem;
+    color: #fff;
+    margin: 0.2rem;
+    background-color: #008ac4;
+    text-align: center;
+    line-height: 0.35rem;
+    cursor: pointer;
+    &:hover{
+      background-color: rgba($color:  #008ac4, $alpha: 0.8);
+    }
+  }
+}

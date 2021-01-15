@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../scss/serve.scss"
+    ],
+    "names": [],
+    "file": "serve.css"
+}

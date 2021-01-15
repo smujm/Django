@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>共享平台</title>
+    <script src="./assets/js/fnreSize.js"></script>
+    <script src="./assets/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="./assets/scss/index.css" />
+  </head>
+  <body>
+    <div class="index-box">
+      <div class="search">
+        <input
+          class="search-input"
+          id="myInput"
+          onkeyup="myFunction()"
+          type="text"
+          placeholder="请输入"
+        />
+        <ul id="myUL" class="input-list" style="display: none">
+          <li class="input-list-head" id="open-c">
+            <span>城市建设</span>
+          </li>
+          <li class="input-list-item" id="open-b">
+            <span>玻璃幕墙</span>
+          </li>
+        </ul>
+        <div class="search-logo"></div>
+      </div>
+      <div class="nav-box">
+        <a> 首页 </a>
+        <a href="./dataCenter.html"> 数据中心 </a>
+        <!-- <a href="./serve.html"> 服务与支持 </a> -->
+        <a href="./us.html" id="us"> 关于我们 </a>
+      </div>
+
+      <div class="title">
+        <span></span>
+        <span>数据共享平台</span>
+      </div>
+      <div class="class-box">
+        <div class="toData1"></div>
+        <div class="toData2"></div>
+        <div class="toData3"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var us = document.getElementById("us");
+    us.onclick = function () {
+      window.location.reload("./us.html");
+    };
+    //
+
+    $("#open-c").click(function () {
+      window.location.href = "./dataCenter.html";
+      window.localStorage.setItem("toDataCenter", "城市建设");
+    });
+    $("#open-b").click(function () {
+      window.location.href = "./dataCenter.html";
+      window.localStorage.setItem("toDataCenter", "玻璃幕墙");
+    });
+    $(".toData1").click(function () {
+      window.location.href = "./dataCenter.html";
+      window.localStorage.setItem("toDataCenter", "城市运行");
+    });
+    $(".toData2").click(function () {
+      window.location.href = "./dataCenter.html";
+      window.localStorage.setItem("toDataCenter", "城市要素");
+    });
+    $(".toData3").click(function () {
+      window.location.href = "./dataCenter.html";
+      window.localStorage.setItem("toDataCenter", "行业领域");
+    });
+
+    function myFunction() {
+      // 声明变量
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("myInput");
+      filter = input.value;
+      ul = document.getElementById("myUL");
+      li = ul.getElementsByClassName("input-list-item");
+      if (filter != "") {
+        ul.style.display = "block";
+      } else if (filter == "") {
+        ul.style.display = "none";
+      }
+    }
+  </script>
+</html>
